@@ -13,6 +13,7 @@ M.vnoremap("<C-j>", ":m '>+1<CR>gv=gv")
 M.vnoremap("<C-k>", ":m '<-2<CR>gv=gv")
 M.nnoremap("{", "}")
 M.nnoremap("}", "{")
+M.nnoremap("<leader>gg", ":Neogit<CR>")
 
 vim.cmd([[
 function! NetrwMapping()

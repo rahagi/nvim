@@ -39,4 +39,5 @@ return require("packer").startup(function(use)
 
   -- VCS
   use("lewis6991/gitsigns.nvim", { tag = "release" })
+  use("TimUntersberger/neogit", { requires = 'nvim-lua/plenary.nvim' })
 end)
