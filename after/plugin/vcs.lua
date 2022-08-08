@@ -56,7 +56,6 @@ gitsigns.setup({
     map('n', '<leader>gR', gs.reset_buffer)
     map('n', '<leader>gp', gs.preview_hunk)
     map('n', '<leader>gB', function() gs.blame_line{full=true} end)
-    map('n', '<leader>gb', gs.toggle_current_line_blame)
     map('n', '<leader>gd', gs.diffthis)
     map('n', '<leader>gD', function() gs.diffthis('~') end)
 
