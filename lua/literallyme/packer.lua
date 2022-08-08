@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
   use("L3MON4D3/LuaSnip")
   use("saadparwaiz1/cmp_luasnip")
   use("onsails/lspkind-nvim")
+  use("tzachar/cmp-tabnine", { run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
   -- Treesitter
   use("nvim-treesitter/nvim-treesitter")
