@@ -6,8 +6,7 @@ return require("packer").startup(function(use)
 
   -- Bling
   use("dylanaraps/wal.vim")
-  use("vim-airline/vim-airline")
-  use("vim-airline/vim-airline-themes")
+  use("nvim-lualine/lualine.nvim", { requires = "kyazdani42/nvim-web-devicons", opt = true })
 
   -- Accessibility
   use("jiangmiao/auto-pairs")
