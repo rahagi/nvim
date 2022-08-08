@@ -13,9 +13,8 @@ return require("packer").startup(function(use)
   use("jiangmiao/auto-pairs")
   use("airblade/vim-rooter")
 
-  -- FZF
-  use("junegunn/fzf", { run = ":call fzf#install()" })
-  use("junegunn/fzf.vim")
+  -- Fuzzy finder
+  use("nvim-telescope/telescope.nvim")
 
   -- LSP
   use("williamboman/mason.nvim")

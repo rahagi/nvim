@@ -13,7 +13,11 @@ M.vnoremap("<C-j>", ":m '>+1<CR>gv=gv")
 M.vnoremap("<C-k>", ":m '<-2<CR>gv=gv")
 M.nnoremap("{", "}")
 M.nnoremap("}", "{")
+
 M.nnoremap("<leader>gg", ":Neogit<CR>")
+M.nnoremap("<C-p>", ":Telescope find_files<CR>")
+M.nnoremap("<C-b>", ":Telescope buffers<CR>")
+M.nnoremap("<C-t>", ":Telescope live_grep<CR>")
 
 vim.cmd([[
 function! NetrwMapping()
