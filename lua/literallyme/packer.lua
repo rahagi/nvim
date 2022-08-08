@@ -2,6 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
+  use("nvim-lua/plenary.nvim")
 
   -- Bling
   use("dylanaraps/wal.vim")
@@ -21,6 +22,7 @@ return require("packer").startup(function(use)
   use("williamboman/mason-lspconfig.nvim")
   use("neovim/nvim-lspconfig")
   use("ray-x/lsp_signature.nvim")
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- CMP
   use("hrsh7th/nvim-cmp")

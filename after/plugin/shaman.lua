@@ -4,6 +4,7 @@ local lsp_signature_cfg = require("literallyme.lsp.signature")
 local lspconfig         = require("lspconfig")
 local cmp_nvim_lsp      = require("cmp_nvim_lsp")
 local lsp_signature     = require("lsp_signature")
+local null_ls           = require("null-ls")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(handler.capabilities)
 
@@ -15,6 +16,18 @@ require("mason-lspconfig").setup({
 
 -- Signature
 lsp_signature.setup(lsp_signature_cfg)
+
+-- null-ls
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
+local code_actions = null_ls.builtins.code_actions
+
+null_ls.setup({
+  sources = {
+    diagnostics.shellcheck,
+  }
+})
+
 
 -- Init LSP
 local function extend_opts(extopts, opts)
