@@ -1,4 +1,8 @@
 local lualine = require("lualine")
 
 vim.cmd("colorscheme wal")
-lualine.setup()
+lualine.setup({
+  options = {
+    theme = "pywal",
+  },
+})
