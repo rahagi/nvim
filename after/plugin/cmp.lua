@@ -42,7 +42,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'cmp_tabnine' },
-    { name = 'vsnip' },
+    { name = 'luasnip' },
     { name = 'buffer' },
   })
 })
