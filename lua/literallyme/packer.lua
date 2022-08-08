@@ -36,4 +36,7 @@ return require("packer").startup(function(use)
 
   -- Treesitter
   use("nvim-treesitter/nvim-treesitter")
+
+  -- VCS
+  use("lewis6991/gitsigns.nvim", { tag = "release" })
 end)
