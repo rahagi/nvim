@@ -2,6 +2,8 @@ local M = require("literallyme.keymap")
 local telescope = require("telescope")
 local actions = require "telescope.actions"
 
+telescope.load_extension("harpoon")
+
 telescope.setup({
   defaults = {
     selection_caret = " ",

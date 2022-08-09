@@ -11,6 +11,7 @@ return require("packer").startup(function(use)
   -- Accessibility
   use("jiangmiao/auto-pairs")
   use("airblade/vim-rooter")
+  use("ThePrimeagen/harpoon")
 
   -- Fuzzy finder
   use("nvim-telescope/telescope.nvim")
