@@ -23,6 +23,7 @@ return require("packer").startup(function(use)
   use("neovim/nvim-lspconfig")
   use("ray-x/lsp_signature.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
+  use("github/copilot.vim")
 
   -- CMP
   use("hrsh7th/nvim-cmp")
