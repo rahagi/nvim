@@ -184,6 +184,11 @@ _G.packer_plugins = {
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
+  },
   ["vim-rooter"] = {
     loaded = true,
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/vim-rooter",
