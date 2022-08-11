@@ -42,4 +42,9 @@ return require("packer").startup(function(use)
   -- VCS
   use("lewis6991/gitsigns.nvim", { tag = "release" })
   use("TimUntersberger/neogit", { requires = 'nvim-lua/plenary.nvim' })
+
+  -- Database Management
+  use("tpope/vim-dadbod")
+  use("kristijanhusak/vim-dadbod-ui")
+  use("kristijanhusak/vim-dadbod-completion")
 end)

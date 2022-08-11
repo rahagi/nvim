@@ -8,6 +8,7 @@ local source_mapping = {
   nvim_lua = "[Lua]",
   cmp_tabnine = "[TN]",
   path = "[Path]",
+  ['vim-dadbod-completion'] = "[DB]",
 }
 
 cmp.setup({
@@ -44,5 +45,6 @@ cmp.setup({
     { name = 'cmp_tabnine' },
     { name = 'luasnip' },
     { name = 'buffer' },
+    { name = 'vim-dadbod-completion' }
   })
 })

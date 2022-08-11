@@ -14,6 +14,7 @@ M.vnoremap("<C-k>", ":m '<-2<CR>gv=gv")
 M.nnoremap("{", "}")
 M.nnoremap("}", "{")
 
+M.nnoremap("<leader>D", ":DBUI<CR>")
 M.inoremap("<C-J>", "copilot#Accept('<CR>')", { silent = true, expr = true })
 M.nnoremap("<C-p>", ":Telescope find_files<CR>")
 M.nnoremap("<C-b>", ":Telescope buffers<CR>")
