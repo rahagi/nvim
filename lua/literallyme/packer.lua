@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
   use("tzachar/cmp-tabnine", { run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
   -- Treesitter
-  use("nvim-treesitter/nvim-treesitter")
+  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
   -- VCS
   use("lewis6991/gitsigns.nvim", { tag = "release" })
