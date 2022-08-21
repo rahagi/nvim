@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.opt.mouse = "a"
+
 vim.opt.backup = false
 vim.opt.swapfile = false
 
