@@ -46,6 +46,7 @@ cmp.setup({
     { name = 'cmp_tabnine' },
     { name = 'luasnip' },
     { name = 'buffer' },
-    { name = 'vim-dadbod-completion' }
+    { name = 'path' },
+    { name = 'vim-dadbod-completion' },
   })
 })
