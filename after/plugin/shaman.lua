@@ -26,6 +26,8 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
   sources = {
     diagnostics.shellcheck,
+    diagnostics.hadolint,
+    formatting.stylua,
   }
 })
 
