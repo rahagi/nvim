@@ -8,6 +8,7 @@ local source_mapping = {
   nvim_lua = "[Lua]",
   cmp_tabnine = "[TN]",
   path = "[Path]",
+  luasnip = "[Snip]",
   ['vim-dadbod-completion'] = "[DB]",
 }
 
