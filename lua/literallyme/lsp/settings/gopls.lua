@@ -1,12 +1,12 @@
 local M = {}
 
 M.settings = {
-  gopls = {
-    analyses = {
-      unusedparams = true,
-    },
-    staticcheck = true,
-  }
+	gopls = {
+		analyses = {
+			unusedparams = true,
+		},
+		staticcheck = true,
+	},
 }
 
 return M
