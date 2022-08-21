@@ -1,6 +1,6 @@
 local M = require("literallyme.keymap")
 
-M.nnoremap("<leader>P", ":Lexplore<CR>")
+M.nnoremap("<leader>P", ":NvimTreeToggle<CR>")
 M.nnoremap("<leader><leader>", ":nohlsearch<CR>")
 M.nnoremap("B", "^")
 M.nnoremap("^", "<nop>")

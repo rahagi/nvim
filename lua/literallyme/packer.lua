@@ -12,6 +12,7 @@ return require("packer").startup(function(use)
   use("jiangmiao/auto-pairs")
   use("airblade/vim-rooter")
   use("ThePrimeagen/harpoon")
+  use("kyazdani42/nvim-tree.lua", { requires = "kyazdani42/nvim-web-devicons" })
 
   -- Fuzzy finder
   use("nvim-telescope/telescope.nvim")
