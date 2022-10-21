@@ -141,17 +141,17 @@ telescope.setup({
 			show_pluto = true,
 			show_moon = true,
 		},
-		lsp_references = {
-			theme = "dropdown",
-		},
-		lsp_definitions = {
-			theme = "dropdown",
-		},
-		lsp_declarations = {
-			theme = "dropdown",
-		},
-		lsp_implementations = {
-			theme = "dropdown",
-		},
+		-- lsp_references = {
+		-- 	theme = "dropdown",
+		-- },
+		-- lsp_definitions = {
+		-- 	theme = "dropdown",
+		-- },
+		-- lsp_declarations = {
+		-- 	theme = "dropdown",
+		-- },
+		-- lsp_implementations = {
+		-- 	theme = "dropdown",
+		-- },
 	},
 })

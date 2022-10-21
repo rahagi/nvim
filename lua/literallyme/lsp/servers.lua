@@ -1,8 +1,13 @@
 local M = {
 	"gopls",
 	"tsserver",
-	"ltex",
+	"eslint",
 	"sumneko_lua",
+	"pyright",
+	"phpactor",
+	"marksman",
+	"rust_analyzer",
+	"ansiblels",
 }
 
 return M

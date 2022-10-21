@@ -6,13 +6,15 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lsp_signature = require("lsp_signature")
 local null_ls = require("null-ls")
 -- local tabnine = require("cmp_tabnine.config")
+local lsp_colors = require("lsp-colors")
+local rust_tools = require("rust-tools")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(handler.capabilities)
 
 -- Check for Servers
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = servers,
+  ensure_installed = servers,
 })
 
 -- Signature
@@ -24,11 +26,17 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-	sources = {
-		diagnostics.shellcheck,
-		diagnostics.hadolint,
-		formatting.stylua,
-	},
+  on_attach = handler.on_attach,
+  sources = {
+    code_actions.shellcheck,
+    diagnostics.shellcheck,
+    diagnostics.hadolint,
+    diagnostics.sqlfluff,
+    formatting.blue,
+    formatting.stylua,
+    formatting.sqlfluff,
+    formatting.prettierd,
+  },
 })
 
 -- Tabnine
@@ -40,29 +48,47 @@ null_ls.setup({
 -- 	snippet_placeholder = "..",
 -- })
 
+-- Color
+lsp_colors.setup({})
 
 -- Init LSP
 local function extend_opts(extopts, opts)
-	return vim.tbl_deep_extend("force", extopts, opts)
+  return vim.tbl_deep_extend("force", extopts, opts)
 end
 
 for _, server in pairs(servers) do
-	local opts = {
-		on_attach = handler.on_attach,
-		capabilities = capabilities,
-	}
+  local opts = {
+    on_attach = handler.on_attach,
+    capabilities = capabilities,
+  }
 
-	if server == "gopls" then
-		local gopls_opts = require("literallyme.lsp.settings.gopls")
-		opts = extend_opts(gopls_opts, opts)
-	end
+  if server == "gopls" then
+    local gopls_opts = require("literallyme.lsp.settings.gopls")
+    opts = extend_opts(gopls_opts, opts)
+  end
 
-	if server == "sumneko_lua" then
-		opts.on_attach = function(client)
-			client.resolved_capabilities.document_formatting = false
-			vim.cmd([[ lua require("literallyme.lsp.handler").enable_format_on_save() ]])
-		end
-	end
+  if server == "tsserver" then
+    opts.on_attach = function(client, bufnr)
+      client.server_capabilities.document_formatting = false
+      handler.on_attach(client, bufnr)
+    end
+  end
 
-	lspconfig[server].setup(opts)
+  if server == "sumneko_lua" then
+    opts.on_attach = function(client)
+      client.server_capabilities.document_formatting = false
+      vim.cmd([[ lua require("literallyme.lsp.handler").enable_format_on_save() ]])
+    end
+  end
+
+  if server == "ansiblels" then
+    local ansiblels_opts = require("literallyme.lsp.settings.ansiblels")
+    opts = extend_opts(ansiblels_opts, opts)
+  end
+
+  if server == "rust_analyzer" then
+    rust_tools.setup({ server = opts })
+  else
+    lspconfig[server].setup(opts)
+  end
 end

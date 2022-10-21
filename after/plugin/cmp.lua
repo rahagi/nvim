@@ -34,8 +34,8 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-u>"] = cmp.mapping.scroll_docs(4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-o>"] = cmp.mapping.complete(),
 		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),
@@ -49,4 +49,23 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "vim-dadbod-completion" },
 	}),
+	view = {
+		-- give the popup a border
+		border = {
+			{ "╭", "FloatBorder" },
+			{ "─", "FloatBorder" },
+			{ "╮", "FloatBorder" },
+			{ "│", "FloatBorder" },
+			{ "╯", "FloatBorder" },
+			{ "─", "FloatBorder" },
+			{ "╰", "FloatBorder" },
+			{ "│", "FloatBorder" },
+		},
+		entries = {
+			name = "custom",
+			selection_order = "near_cursor",
+		},
+	},
 })
+vim.cmd("hi! Pmenu ctermbg=0")
+require("luasnip.loaders.from_vscode").lazy_load()

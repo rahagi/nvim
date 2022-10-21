@@ -23,7 +23,21 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("ray-x/lsp_signature.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	-- use("github/copilot.vim")
+	use("RRethy/vim-illuminate")
+	use("kevinhwang91/promise-async")
+	use("kevinhwang91/nvim-ufo", { requires = "kevinhwang91/promise-async" })
+	use("folke/lsp-colors.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
+	use("arkav/lualine-lsp-progress")
+	use("simrat39/rust-tools.nvim")
+	use("github/copilot.vim")
+	-- use("simrat39/inlay-hints.nvim")
 
 	-- CMP
 	use("hrsh7th/nvim-cmp")
@@ -38,6 +52,8 @@ return require("packer").startup(function(use)
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+	use("nvim-treesitter/nvim-treesitter-context")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- VCS
 	use("lewis6991/gitsigns.nvim", { tag = "release" })

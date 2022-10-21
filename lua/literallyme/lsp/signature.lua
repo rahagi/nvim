@@ -4,7 +4,7 @@ local M = {
 	verbose = false,
 
 	bind = true,
-	doc_lines = 0,
+	doc_lines = 10,
 	floating_window = false,
 
 	floating_window_above_cur_line = false,
@@ -12,6 +12,7 @@ local M = {
 	hint_enable = true,
 	hint_scheme = "Comment",
 	use_lspsaga = false,
+	hint_prefix = " ",
 	hi_parameter = "LspSignatureActiveParameter",
 	max_height = 12,
 	max_width = 120,
