@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
 	use("nvim-lualine/lualine.nvim", { requires = "kyazdani42/nvim-web-devicons", opt = true })
 
 	-- Accessibility
-	use("jiangmiao/auto-pairs")
+	-- use("jiangmiao/auto-pairs")
 	use("airblade/vim-rooter")
 	use("ThePrimeagen/harpoon")
 	use("kyazdani42/nvim-tree.lua", { requires = "kyazdani42/nvim-web-devicons" })
