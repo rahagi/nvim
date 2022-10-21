@@ -8,6 +8,8 @@ vim.opt.swapfile = false
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.colorcolumn = "+1"
+
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
@@ -38,5 +40,8 @@ vim.g.netrw_localcopydircmd = "cp -r"
 
 vim.g.copilot_no_tab_map = true
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldcolumn = "0"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
