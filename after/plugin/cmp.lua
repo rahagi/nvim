@@ -6,7 +6,7 @@ local source_mapping = {
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
-	cmp_tabnine = "[TN]",
+	-- cmp_tabnine = "[TN]",
 	path = "[Path]",
 	luasnip = "[Snip]",
 	["vim-dadbod-completion"] = "[DB]",
@@ -43,7 +43,7 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "cmp_tabnine" },
+		-- { name = "cmp_tabnine" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },

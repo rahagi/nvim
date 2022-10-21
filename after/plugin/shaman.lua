@@ -5,7 +5,7 @@ local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lsp_signature = require("lsp_signature")
 local null_ls = require("null-ls")
-local tabnine = require("cmp_tabnine.config")
+-- local tabnine = require("cmp_tabnine.config")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(handler.capabilities)
 
@@ -32,14 +32,14 @@ null_ls.setup({
 })
 
 -- Tabnine
-tabnine:setup({
-	max_lines = 1000,
-	max_num_results = 20,
-	sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = "..",
-	show_prediction_strength = false,
-})
+-- tabnine:setup({
+-- 	max_lines = 1000,
+-- 	max_num_results = 20,
+-- 	sort = true,
+-- 	run_on_every_keystroke = true,
+-- 	snippet_placeholder = "..",
+-- })
+
 
 -- Init LSP
 local function extend_opts(extopts, opts)
