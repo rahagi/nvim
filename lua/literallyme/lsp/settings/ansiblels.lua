@@ -1,7 +1,7 @@
 local M = {}
 
 M = {
-	filetypes = { "yaml" },
+  filetypes = { "yaml" },
 }
 
 return M

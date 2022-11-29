@@ -11,33 +11,42 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 M.setup = function()
+  -- give non-rounded handler icons
+  local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+  }
+
   local config = {
-    virtual_lines = false,
-    virtual_text = false,
+    virtual_lines = true,
+    virtual_text = true,
     update_in_insert = true,
     underline = true,
     severity_sort = true,
     float = {
       focusable = true,
       style = "minimal",
-      border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
       source = "if_many", -- Or "always"
       header = "",
       prefix = "",
-      -- width = 40,
+      border = border,
     },
   }
 
   vim.diagnostic.config(config)
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    width = 60,
-    height = 30,
+    border = border,
   })
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    width = 60,
-    height = 30,
+    border = border,
   })
 end
 

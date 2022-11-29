@@ -9,13 +9,11 @@ local null_ls = require("null-ls")
 local lsp_colors = require("lsp-colors")
 local rust_tools = require("rust-tools")
 
-local capabilities = cmp_nvim_lsp.update_capabilities(handler.capabilities)
+local capabilities = cmp_nvim_lsp.default_capabilities(handler.capabilities)
 
 -- Check for Servers
 require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = servers,
-})
+require("mason-lspconfig").setup()
 
 -- Signature
 lsp_signature.setup(lsp_signature_cfg)
@@ -29,12 +27,15 @@ null_ls.setup({
   on_attach = handler.on_attach,
   sources = {
     code_actions.shellcheck,
+    code_actions.eslint_d,
     diagnostics.shellcheck,
     diagnostics.hadolint,
-    diagnostics.sqlfluff,
+    diagnostics.eslint_d,
+    -- diagnostics.sqlfluff,
     formatting.blue,
     formatting.stylua,
-    formatting.sqlfluff,
+    -- formatting.eslint_d,
+    -- formatting.sqlfluff,
     formatting.prettierd,
   },
 })
@@ -57,6 +58,8 @@ local function extend_opts(extopts, opts)
 end
 
 for _, server in pairs(servers) do
+  handler.setup()
+
   local opts = {
     on_attach = handler.on_attach,
     capabilities = capabilities,
