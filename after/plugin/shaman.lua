@@ -7,7 +7,6 @@ local lsp_signature = require("lsp_signature")
 local null_ls = require("null-ls")
 -- local tabnine = require("cmp_tabnine.config")
 local lsp_colors = require("lsp-colors")
-local rust_tools = require("rust-tools")
 
 local capabilities = cmp_nvim_lsp.default_capabilities(handler.capabilities)
 
@@ -90,7 +89,13 @@ for _, server in pairs(servers) do
   end
 
   if server == "rust_analyzer" then
-    rust_tools.setup({ server = opts })
+    local rust_tools = require("rust-tools")
+    local dap = require("literallyme.dap.configs.rust")
+    local rust_anal_opts = require("literallyme.lsp.settings.rustanal")
+    rust_tools.setup({
+      dap,
+      server = extend_opts(opts, rust_anal_opts),
+    })
   else
     lspconfig[server].setup(opts)
   end
