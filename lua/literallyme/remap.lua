@@ -39,7 +39,7 @@ M.nnoremap("<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>")
 M.nnoremap("<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>")
 M.nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 for i = 1, 6, 1 do
-	M.nnoremap("<leader>h" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
+  M.nnoremap("<leader>h" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>")
 end
 
 M.nnoremap("zR", ":lua require('ufo').openAllFolds()<CR>")
