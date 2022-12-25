@@ -9,6 +9,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.colorcolumn = "+1"
+vim.opt.cursorline = true
 
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
