@@ -45,6 +45,13 @@ end
 M.nnoremap("zR", ":lua require('ufo').openAllFolds()<CR>")
 M.nnoremap("zM", ":lua require('ufo').closeAllFolds()<CR>")
 
+M.nnoremap("<leader>dd", ":lua require('dapui').toggle()<CR>")
+M.nnoremap("<leader>db", ":lua require('dap').toggle_breakpoint()<CR>")
+M.nnoremap("<leader>di", ":lua require('dap').step_into()<CR>")
+M.nnoremap("<leader>do", ":lua require('dap').step_over()<CR>")
+M.nnoremap("<leader>dc", ":lua require('dap').continue()<CR>")
+M.nnoremap("<leader>dr", ":lua require('dap').restart()<CR>")
+
 vim.cmd([[
 function! NetrwMapping()
   nmap <buffer> H u
