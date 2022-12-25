@@ -93,7 +93,7 @@ for _, server in pairs(servers) do
     local dap = require("literallyme.dap.configs.rust")
     local rust_anal_opts = require("literallyme.lsp.settings.rustanal")
     rust_tools.setup({
-      dap,
+      dap = dap,
       server = extend_opts(opts, rust_anal_opts),
     })
   else
