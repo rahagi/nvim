@@ -37,6 +37,7 @@ return require("packer").startup(function(use)
   use("arkav/lualine-lsp-progress")
   use("simrat39/rust-tools.nvim")
   use("github/copilot.vim")
+  use("folke/neodev.nvim")
   -- use("simrat39/inlay-hints.nvim")
 
   -- CMP
@@ -58,6 +59,7 @@ return require("packer").startup(function(use)
   -- VCS
   use("lewis6991/gitsigns.nvim", { tag = "release" })
   use("TimUntersberger/neogit", { requires = "nvim-lua/plenary.nvim" })
+  use("akinsho/git-conflict.nvim")
 
   -- Database Management
   use("tpope/vim-dadbod")

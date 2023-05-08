@@ -17,6 +17,7 @@ configs.setup({
   },
 })
 context.setup({
+  enable = true,
   max_lines = 2,
   patterns = {
     default = {

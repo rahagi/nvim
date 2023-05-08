@@ -7,6 +7,9 @@ local lsp_signature = require("lsp_signature")
 local null_ls = require("null-ls")
 -- local tabnine = require("cmp_tabnine.config")
 local lsp_colors = require("lsp-colors")
+local neodev = require("neodev")
+
+neodev.setup({})
 
 local capabilities = cmp_nvim_lsp.default_capabilities(handler.capabilities)
 
@@ -22,20 +25,28 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
+local eslint_config = {
+  condition = function(utils)
+    return utils.root_has_file(".eslintrc")
+        or utils.root_has_file(".eslintrc.js")
+        or utils.root_has_file(".eslintrc.json")
+  end,
+}
+
 null_ls.setup({
   on_attach = handler.on_attach,
   sources = {
     code_actions.shellcheck,
-    code_actions.eslint_d,
+    code_actions.eslint_d.with(eslint_config),
     diagnostics.shellcheck,
     diagnostics.hadolint,
-    diagnostics.eslint_d,
+    diagnostics.eslint_d.with(eslint_config),
     -- diagnostics.sqlfluff,
-    formatting.blue,
+    formatting.black,
     formatting.stylua,
-    -- formatting.eslint_d,
+    formatting.eslint_d.with(eslint_config),
     -- formatting.sqlfluff,
-    formatting.prettierd,
+    -- formatting.prettierd,
   },
 })
 
@@ -76,7 +87,7 @@ for _, server in pairs(servers) do
     end
   end
 
-  if server == "sumneko_lua" then
+  if server == "lua_ls" then
     opts.on_attach = function(client)
       client.server_capabilities.document_formatting = false
       vim.cmd([[ lua require("literallyme.lsp.handler").enable_format_on_save() ]])
