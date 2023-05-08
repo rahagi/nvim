@@ -1,14 +1,17 @@
 local M = {
   "gopls",
   "tsserver",
-  "sumneko_lua",
-  "pyright",
-  "phpactor",
+  "lua_ls",
   "marksman",
   "rust_analyzer",
-  "ansiblels",
-  "ccls",
+  -- "ccls",
   "jsonls",
+  "pyright",
+  "svelte",
+  "volar",
+  "omnisharp",
+  "cssls",
+  "clangd",
 }
 
 return M
