@@ -40,6 +40,13 @@ vim.g.netrw_banner = 0
 vim.g.netrw_localcopydircmd = "cp -r"
 
 vim.g.copilot_no_tab_map = true
+-- so it doesn't fuck up dap repl
+vim.api.nvim_set_var("copilot_filetypes", {
+  ["dap-repl"] = false,
+  ["dapui-watches"] = false,
+  ["dapui-console"] = false,
+  ["TelescopePrompt"] = false,
+})
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldcolumn = "0"
