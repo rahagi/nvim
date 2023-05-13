@@ -27,7 +27,7 @@ M.nnoremap("<leader>V", "<C-w><C-v>")
 M.nnoremap("<leader>S", "<C-w><C-s>")
 
 M.nnoremap("<leader>D", ":DBUI<CR>")
-M.inoremap("<C-J>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+M.inoremap("<C-J>", "copilot#Accept('<CR>')", { silent = true, expr = true, replace_keycodes = false })
 M.nnoremap("<C-p>", ":Telescope find_files<CR>")
 M.nnoremap("<C-b>", ":Telescope buffers<CR>")
 M.nnoremap("<C-t>", ":Telescope live_grep<CR>")
