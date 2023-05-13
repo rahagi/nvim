@@ -4,7 +4,6 @@ local M = {
   "lua_ls",
   "marksman",
   "rust_analyzer",
-  -- "ccls",
   "jsonls",
   "pyright",
   "svelte",
