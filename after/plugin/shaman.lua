@@ -44,9 +44,10 @@ null_ls.setup({
     -- diagnostics.sqlfluff,
     formatting.black,
     formatting.stylua,
-    formatting.eslint_d.with(eslint_config),
+    -- formatting.eslint_d.with(eslint_config),
+    formatting.sqlfmt,
     -- formatting.sqlfluff,
-    -- formatting.prettierd,
+    formatting.prettierd,
   },
 })
 
@@ -82,7 +83,7 @@ for _, server in pairs(servers) do
 
   if server == "tsserver" then
     opts.on_attach = function(client, bufnr)
-      client.server_capabilities.document_formatting = false
+      client.server_capabilities.documentFormattingProvider = false
       handler.on_attach(client, bufnr)
     end
   end
@@ -109,5 +110,10 @@ for _, server in pairs(servers) do
     })
   else
     lspconfig[server].setup(opts)
+  end
+
+  if server == "clangd" then
+    capabilities.offsetEncoding = { "utf-16" }
+    lspconfig[server].setup(extend_opts(opts, { capabilities = capabilities }))
   end
 end
