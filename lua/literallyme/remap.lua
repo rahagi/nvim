@@ -31,7 +31,7 @@ M.inoremap("<C-J>", "copilot#Accept('<CR>')", { silent = true, expr = true, repl
 M.nnoremap("<C-p>", ":Telescope find_files<CR>")
 M.nnoremap("<C-b>", ":Telescope buffers<CR>")
 M.nnoremap("<C-t>", ":Telescope live_grep<CR>")
-M.nnoremap("<leader>gg", ":Neogit<CR>")
+M.nnoremap("<leader>gg", ":Neogit kind=replace<CR>")
 M.nnoremap("<leader>gb", ":Telescope git_branches<CR>")
 M.nnoremap("<leader>hh", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 M.nnoremap("<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
