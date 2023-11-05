@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["ChatGPT.nvim"] = {
+    loaded = true,
+    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/ChatGPT.nvim",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -104,10 +109,10 @@ _G.packer_plugins = {
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.vim"] = {
+  ["diffview.nvim"] = {
     loaded = true,
-    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/copilot.vim",
-    url = "https://github.com/github/copilot.vim"
+    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -173,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -264,6 +274,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rhg/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["vim-abolish"] = {
+    loaded = true,
+    path = "/home/rhg/.local/share/nvim/site/pack/packer/start/vim-abolish",
+    url = "https://github.com/tpope/vim-abolish"
   },
   ["vim-dadbod"] = {
     loaded = true,

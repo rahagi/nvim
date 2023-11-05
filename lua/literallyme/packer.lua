@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
   use("airblade/vim-rooter")
   use("ThePrimeagen/harpoon")
   use("kyazdani42/nvim-tree.lua", { requires = "kyazdani42/nvim-web-devicons" })
+  use("tpope/vim-abolish")
 
   -- Fuzzy finder
   use("nvim-telescope/telescope.nvim")
@@ -36,9 +37,17 @@ return require("packer").startup(function(use)
   })
   use("arkav/lualine-lsp-progress")
   use("simrat39/rust-tools.nvim")
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
   use("folke/neodev.nvim")
   -- use("simrat39/inlay-hints.nvim")
+  use({
+    "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  })
 
   -- CMP
   use("hrsh7th/nvim-cmp")
@@ -60,6 +69,7 @@ return require("packer").startup(function(use)
   use("lewis6991/gitsigns.nvim", { tag = "release" })
   use("TimUntersberger/neogit", { requires = "nvim-lua/plenary.nvim" })
   use("akinsho/git-conflict.nvim")
+  use("sindrets/diffview.nvim")
 
   -- Database Management
   use("tpope/vim-dadbod")
