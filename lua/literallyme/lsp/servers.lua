@@ -9,8 +9,9 @@ local M = {
   "svelte",
   "volar",
   "omnisharp",
-  "cssls",
   "clangd",
+  "volar",
+  "sqlls",
 }
 
 return M

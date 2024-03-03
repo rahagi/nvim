@@ -44,10 +44,10 @@ null_ls.setup({
     -- diagnostics.sqlfluff,
     formatting.black,
     formatting.stylua,
-    -- formatting.eslint_d.with(eslint_config),
+    formatting.eslint_d.with(eslint_config),
     formatting.sqlfmt,
     -- formatting.sqlfluff,
-    formatting.prettierd,
+    -- formatting.prettierd,
   },
 })
 
