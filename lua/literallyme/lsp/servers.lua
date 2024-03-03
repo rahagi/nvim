@@ -12,6 +12,7 @@ local M = {
   "clangd",
   "volar",
   "sqlls",
+  "eslint",
 }
 
 return M

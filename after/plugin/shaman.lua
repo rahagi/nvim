@@ -22,32 +22,13 @@ lsp_signature.setup(lsp_signature_cfg)
 
 -- null-ls
 local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
-local code_actions = null_ls.builtins.code_actions
-
-local eslint_config = {
-  condition = function(utils)
-    return utils.root_has_file(".eslintrc")
-        or utils.root_has_file(".eslintrc.js")
-        or utils.root_has_file(".eslintrc.json")
-  end,
-}
 
 null_ls.setup({
   on_attach = handler.on_attach,
   sources = {
-    code_actions.shellcheck,
-    code_actions.eslint_d.with(eslint_config),
-    diagnostics.shellcheck,
-    diagnostics.hadolint,
-    diagnostics.eslint_d.with(eslint_config),
-    -- diagnostics.sqlfluff,
     formatting.black,
     formatting.stylua,
-    formatting.eslint_d.with(eslint_config),
     formatting.sqlfmt,
-    -- formatting.sqlfluff,
-    -- formatting.prettierd,
   },
 })
 
@@ -79,6 +60,7 @@ for _, server in pairs(servers) do
   if server == "gopls" then
     local gopls_opts = require("literallyme.lsp.settings.gopls")
     opts = extend_opts(gopls_opts, opts)
+    lspconfig[server].setup(opts)
   end
 
   if server == "tsserver" then
@@ -86,6 +68,7 @@ for _, server in pairs(servers) do
       client.server_capabilities.documentFormattingProvider = false
       handler.on_attach(client, bufnr)
     end
+    lspconfig[server].setup(opts)
   end
 
   if server == "lua_ls" then
@@ -93,11 +76,13 @@ for _, server in pairs(servers) do
       client.server_capabilities.document_formatting = false
       vim.cmd([[ lua require("literallyme.lsp.handler").enable_format_on_save() ]])
     end
+    lspconfig[server].setup(opts)
   end
 
   if server == "ansiblels" then
     local ansiblels_opts = require("literallyme.lsp.settings.ansiblels")
     opts = extend_opts(ansiblels_opts, opts)
+    lspconfig[server].setup(opts)
   end
 
   if server == "rust_analyzer" then
@@ -115,5 +100,16 @@ for _, server in pairs(servers) do
   if server == "clangd" then
     capabilities.offsetEncoding = { "utf-16" }
     lspconfig[server].setup(extend_opts(opts, { capabilities = capabilities }))
+  end
+
+  if server == "eslint" then
+    opts.on_attach = function(client, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+      handler.on_attach(client, bufnr)
+    end
+    lspconfig[server].setup(opts)
   end
 end
