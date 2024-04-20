@@ -1,86 +1,69 @@
-vim.cmd([[packadd packer.nvim]])
-
-return require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
-  use("nvim-lua/plenary.nvim")
+return require("lazy").setup({
+  "wbthomason/packer.nvim",
+  "nvim-lua/plenary.nvim",
 
   -- Bling
-  use("dylanaraps/wal.vim")
-  use("nvim-lualine/lualine.nvim", { requires = "kyazdani42/nvim-web-devicons", opt = true })
+  "dylanaraps/wal.vim",
+  { "nvim-lualine/lualine.nvim", dependencies = "kyazdani42/nvim-web-devicons", opt = true },
 
   -- Accessibility
-  -- use("jiangmiao/auto-pairs")
-  use("airblade/vim-rooter")
-  use("ThePrimeagen/harpoon")
-  use("kyazdani42/nvim-tree.lua", { requires = "kyazdani42/nvim-web-devicons" })
-  use("tpope/vim-abolish")
+  -- "jiangmiao/auto-pairs",
+  "airblade/vim-rooter",
+  "ThePrimeagen/harpoon",
+  { "kyazdani42/nvim-tree.lua",  dependencies = "kyazdani42/nvim-web-devicons" },
+  "tpope/vim-abolish",
 
   -- Fuzzy finder
-  use("nvim-telescope/telescope.nvim")
+  "nvim-telescope/telescope.nvim",
 
   -- LSP
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("neovim/nvim-lspconfig")
-  use("ray-x/lsp_signature.nvim")
-  use("nvimtools/none-ls.nvim")
-  use("RRethy/vim-illuminate")
-  use("kevinhwang91/promise-async")
-  use("kevinhwang91/nvim-ufo", { requires = "kevinhwang91/promise-async" })
-  use("folke/lsp-colors.nvim")
-  use({
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup({})
-    end,
-  })
-  use("arkav/lualine-lsp-progress")
-  use("simrat39/rust-tools.nvim")
-  -- use("github/copilot.vim")
-  use("folke/neodev.nvim")
-  -- use("simrat39/inlay-hints.nvim")
-  use({
-    "jackMort/ChatGPT.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  })
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+  "ray-x/lsp_signature.nvim",
+  "nvimtools/none-ls.nvim",
+  "RRethy/vim-illuminate",
+  "kevinhwang91/promise-async",
+  { "kevinhwang91/nvim-ufo",           dependencies = "kevinhwang91/promise-async" },
+  "folke/lsp-colors.nvim",
+  "arkav/lualine-lsp-progress",
+  "simrat39/rust-tools.nvim",
+  -- "github/copilot.vim",
+  "folke/neodev.nvim",
+  -- "simrat39/inlay-hints.nvim",
 
   -- CMP
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("L3MON4D3/LuaSnip")
-  use("saadparwaiz1/cmp_luasnip")
-  use("onsails/lspkind-nvim")
-  -- use("tzachar/cmp-tabnine", { run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "hrsh7th/cmp-nvim-lsp",
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+  "onsails/lspkind-nvim",
+  -- "tzachar/cmp-tabnine", { run = "./install.sh", dependencies = "hrsh7th/nvim-cmp" },
 
   -- Treesitter
-  use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-  use("nvim-treesitter/nvim-treesitter-context")
-  use("nvim-treesitter/nvim-treesitter-textobjects")
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "nvim-treesitter/nvim-treesitter-context",
+  "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- VCS
-  use("lewis6991/gitsigns.nvim", { tag = "release" })
-  use("TimUntersberger/neogit", { requires = "nvim-lua/plenary.nvim" })
-  use("akinsho/git-conflict.nvim")
-  use("sindrets/diffview.nvim")
+  { "lewis6991/gitsigns.nvim", version = "release" },
+  { "TimUntersberger/neogit",  dependencies = "nvim-lua/plenary.nvim" },
+  "akinsho/git-conflict.nvim",
+  "sindrets/diffview.nvim",
 
   -- Database Management
-  use("tpope/vim-dadbod")
-  use("kristijanhusak/vim-dadbod-ui")
-  use("kristijanhusak/vim-dadbod-completion")
+  "tpope/vim-dadbod",
+  "kristijanhusak/vim-dadbod-ui",
+  "kristijanhusak/vim-dadbod-completion",
 
   -- Snippets
-  use("rafamadriz/friendly-snippets")
+  "rafamadriz/friendly-snippets",
 
   -- DAP
-  use("mfussenegger/nvim-dap")
-  use("mxsdev/nvim-dap-vscode-js", { requires = "mfussenegger/nvim-dap" })
-  use("rcarriga/nvim-dap-ui", { requires = "mfussenegger/nvim-dap" })
-end)
+  { "mfussenegger/nvim-dap",     dependencies = "nvim-neotest/nvim-nio" },
+  { "mxsdev/nvim-dap-vscode-js", dependencies = "mfussenegger/nvim-dap" },
+  { "rcarriga/nvim-dap-ui",      dependencies = "mfussenegger/nvim-dap" },
+})

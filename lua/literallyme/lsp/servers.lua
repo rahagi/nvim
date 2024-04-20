@@ -13,6 +13,7 @@ local M = {
   "volar",
   "sqlls",
   "eslint",
+  "nil_ls",
 }
 
 return M
