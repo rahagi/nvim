@@ -1,3 +1,3 @@
 require("literallyme.set")
-require("literallyme.packer")
+require("literallyme.plugin")
 require("literallyme.remap")
