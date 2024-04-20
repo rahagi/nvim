@@ -28,7 +28,7 @@ null_ls.setup({
   sources = {
     formatting.black,
     formatting.stylua,
-    formatting.sqlfmt,
+    formatting.alejandra,
   },
 })
 
