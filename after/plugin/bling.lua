@@ -1,14 +1,20 @@
 local lualine = require("lualine")
+local wal_colors = require("wal-colors")
 
-vim.cmd("colorscheme wal")
-vim.cmd("hi Pmenu ctermbg=0")
-vim.cmd("hi ColorColumn ctermbg=234 ctermfg=7")
-vim.cmd("hi FloatBorder ctermfg=7")
-vim.cmd("hi! Search ctermbg=1 ctermfg=7")
-vim.cmd("hi! NonText ctermfg=1")
-vim.cmd("hi! SpecialKey ctermfg=1")
-vim.cmd("hi CursorLine cterm=none ctermbg=234 ctermfg=none")
-vim.cmd("hi CursorLineNr cterm=none ctermbg=234 ctermfg=none")
+wal_colors.setup(function(colors)
+  return {
+    IlluminatedWordRead = { bg = colors.background:lightened(0.175) },
+    IlluminatedWordWrite = { bg = colors.background:lightened(0.175) },
+    IlluminatedWordText = { bg = colors.background:lightened(0.175) },
+    MatchParen = { fg = colors.cursor, bg = colors.red:desaturated(0.125) },
+    NeogitDiffDeleteHighlight = { fg = colors.color11, bg = colors.color11:darkened(0.8) },
+    NeogitDiffAddHighlight = { fg = colors.color4, bg = colors.color4:darkened(0.8) },
+    NeogitHunkHeaderHighlight = { fg = colors.background, bg = colors.foreground },
+    NeogitChangeModified = { fg = colors.foreground:darkened(0.125), bg = colors.yellow:darkened(0.25) },
+    NeogitChangeAdded = { fg = colors.foreground:darkened(0.125), bg = colors.blue:darkened(0.25) },
+    NeogitChangeDeleted = { fg = colors.foreground:darkened(0.125), bg = colors.red:darkened(0.25) },
+  }
+end, { replace = false })
 lualine.setup({
   options = {
     theme = "pywal",
@@ -46,3 +52,11 @@ lualine.setup({
     },
   },
 })
+
+vim.cmd("hi TreesitterContextBottom cterm=none gui=none")
+vim.cmd("hi! link TreesitterContextLineNumberBottom TreesitterContext")
+vim.cmd("hi! link TreesitterContextLineNumber TreesitterContext")
+
+vim.cmd("hi @lsp.mod.declaration cterm=none gui=none")
+
+vim.cmd("hi! link ColorColumn CursorLine")

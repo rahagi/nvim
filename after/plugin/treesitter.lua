@@ -35,5 +35,3 @@ context.setup({
     },
   },
 })
-
-vim.cmd("hi def TreesitterContext ctermbg=233")

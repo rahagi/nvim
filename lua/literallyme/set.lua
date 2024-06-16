@@ -56,4 +56,4 @@ vim.o.foldenable = true
 
 vim.opt.list = true
 
-vim.opt.listchars = { eol = "↵", tab = "»·", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { eol = "↵", tab = "› ", trail = "·", nbsp = "␣" }

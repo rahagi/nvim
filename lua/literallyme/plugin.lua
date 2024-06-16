@@ -3,7 +3,13 @@ return require("lazy").setup({
   "nvim-lua/plenary.nvim",
 
   -- Bling
-  "dylanaraps/wal.vim",
+  {
+    "mbrea-c/wal-colors.nvim",
+    config = function()
+      vim.cmd([[colorscheme mbc]]) -- activate the colorscheme
+    end,
+    priority = 1000,
+  },
   { "nvim-lualine/lualine.nvim", dependencies = "kyazdani42/nvim-web-devicons", opt = true },
 
   -- Accessibility
