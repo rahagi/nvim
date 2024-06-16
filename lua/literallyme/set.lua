@@ -55,4 +55,5 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 vim.opt.list = true
-vim.opt.listchars = { eol = "↵" }
+
+vim.opt.listchars = { eol = "↵", tab = "»·", trail = "·", nbsp = "␣" }
